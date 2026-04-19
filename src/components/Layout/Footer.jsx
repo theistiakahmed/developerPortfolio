@@ -47,7 +47,7 @@ const Footer = () => {
               Projects
             </Link>
             <Link
-              data-aos="fade-down-left"
+              data-aos="zoom-out"
               to={"/contact"}
               className="hover:text-fuchsia-600 transition duration-300 hover:scale-110"
             >
