@@ -18,10 +18,10 @@ const Skills = () => {
             </h3>
 
             <p className="text-sm text-gray-500 sm:text-base md:text-lg max-w-[700px] mx-auto pt-3 md:pb-8 leading-7">
-              <span className="block">
+              <span className="md:block">
                 I specialize in the modern web ecosystem, focusing on performance,
               </span>
-              <span className="block">
+              <span className="md:block">
                 scalability, and clean code.
               </span>
             </p>

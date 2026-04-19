@@ -32,7 +32,7 @@ const GlowImageCard = ({ image, des, title }) => {
   return (
     <>
       <div
-        className="group relative w-[200px] h-[220px]  rounded-2xlbg-black/5 dark:bg-white/10 backdrop-blur-xl border border-black/10 dark:border-white/20 rounded-2xl  inline-block overflow-visible transition-all duration-300 hover:-translate-y-2"
+        className="group relative w-[180px] md:w-[200px] md:h-[220px]  rounded-2xlbg-black/5 dark:bg-white/10 backdrop-blur-xl border border-black/10 dark:border-white/20 rounded-2xl  inline-block overflow-visible transition-all duration-300 hover:-translate-y-2"
       >
         {/* Glow Effect */}
         <div

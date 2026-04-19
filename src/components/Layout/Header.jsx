@@ -31,7 +31,6 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             </h1>
           </div>
         </NavLink>
-
         <div className="hidden md:flex gap-6">
           <NavLink to="/" className={linkStyle}>
             Home
