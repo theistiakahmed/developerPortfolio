@@ -85,9 +85,9 @@ const About = () => {
 
               <Flex className="flex-wrap gap-3 gap-y-6 justify-center">
                 <TechnicalProwes TechnicalText={"HTML5"} />
-                <TechnicalProwes TechnicalText={"CSS3"} />
                 <TechnicalProwes TechnicalText={"JavaScript (ES6+)"} />
                 <TechnicalProwes TechnicalText={"React.js"} />
+                <TechnicalProwes TechnicalText={"Hooks"} />
                 <TechnicalProwes TechnicalText={"Next.js"} />
                 <TechnicalProwes TechnicalText={"Tailwind CSS"} />
                 <TechnicalProwes TechnicalText={"Shadcn"} />
