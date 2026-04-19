@@ -1,14 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useEffect, useState } from 'react'
+
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import RootLayouts from './components/Layout/RootLayouts'
+import Home from './components/pages/Home'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import About from './components/pages/About'
+import Contact from './components/pages/Contact'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  useEffect(() => {
+    Aos.init({
+      duration: 500,
+      once: true,
+    });
+  }, []);
   return (
-    <></>
+    <>
+    <Routes>
+      <Route path='/' element={<RootLayouts/>}>
+      <Route index element={<Home/>}/>
+      <Route path='/about' element={<About/>}/>
+      <Route path='/contact' element={<Contact/>}/>
+        <Route/>
+      </Route>
+    </Routes>
+        
+    
+  
+    </>
   )
 }
 
