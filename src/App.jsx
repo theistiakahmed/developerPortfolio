@@ -8,6 +8,7 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
+import Projects from './components/pages/Projects'
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Route index element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
+      <Route path='/project' element={<Projects/>}/>
         <Route/>
       </Route>
     </Routes>
