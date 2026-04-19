@@ -6,6 +6,7 @@ import imgTwo from "/src/assets/nextjs.png"
 import imgThree from "/src/assets/tailwindcss.png"
 import imgFour from "/src/assets/bootstrap.png"
 import imgFive from "/src/assets/redux.png"
+import imgSix from "/src/assets/js.png"
 
 const Animation = () => {
   const [text, setText] = useState("");
@@ -18,7 +19,7 @@ const Animation = () => {
     if (text.includes("Bootstrap")) return <img className="w-10 h-10 inline" src={imgFour} alt="bootstrap.png"/>;
     if (text.includes("Redux")) return <img className="w-10 h-10 inline"src={imgFive} alt="redux.png"/>;
 
-    return <img className="w-10 h-10 inline" src="/src/assets/js.png" alt="js.png"/>;
+    return <img className="w-10 h-10 inline" src={imgSix} alt="js.png"/>;
   };
 
   return (
