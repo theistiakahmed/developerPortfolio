@@ -64,7 +64,7 @@ const Banner = ({}) => {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
                 <div data-aos="fade-right" className="w-[60%] sm:w-auto flex items-center justify-center gap-x-2 px-6 py-4 bg-fuchsia-600 hover:text-fuchsia-600 text-base md:text-lg font-bold rounded-2xl hover:bg-transparent hover:border hover:border-fuchsia-600 hover:scale-105 shadow-[0_0_20px_rgba(217,70,239,0.5)] hover:shadow-[0_0_35px_rgba(217,70,239,0.7)] duration-300">
                   <LuDownload />
-                  <Link to="/">Download Resume</Link>
+                  <a href="/public/Resume.pdf" target="_blank">Download Resume</a>
                 </div>
 
                 <div data-aos="fade-left" className="w-[50%] sm:w-auto flex items-center justify-center gap-x-2 px-6 py-4 bg-fuchsia-600 hover:text-fuchsia-600 text-base md:text-lg font-bold rounded-2xl hover:bg-transparent hover:border hover:border-fuchsia-600 hover:scale-105 shadow-[0_0_20px_rgba(217,70,239,0.5)] hover:shadow-[0_0_35px_rgba(217,70,239,0.7)] duration-300">
