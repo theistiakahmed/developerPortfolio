@@ -69,7 +69,7 @@ const Banner = ({}) => {
 
                 <div data-aos="fade-left" className="w-[50%] sm:w-auto flex items-center justify-center gap-x-2 px-6 py-4 bg-fuchsia-600 hover:text-fuchsia-600 text-base md:text-lg font-bold rounded-2xl hover:bg-transparent hover:border hover:border-fuchsia-600 hover:scale-105 shadow-[0_0_20px_rgba(217,70,239,0.5)] hover:shadow-[0_0_35px_rgba(217,70,239,0.7)] duration-300">
                   <FaGithub />
-                  <Link to="https://github.com/istiakdev">
+                  <Link to="https://github.com/theistiakahmed">
                     GitHub
                   </Link>
                 </div>

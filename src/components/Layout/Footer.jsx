@@ -57,13 +57,13 @@ const Footer = () => {
 
           <div data-aos="fade-up" className="flex gap-4 text-xl" >
             <a
-              href="https://github.com/istiakdev"
+              href="https://github.com/theistiakahmed"
               className="hover:text-fuchsia-600 transition duration-300 hover:scale-125"
             >
               <FaGithub />
             </a>
             <a
-              href="#"
+              href="https://github.com/theistiakahmed"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-fuchsia-600 transition duration-300 hover:scale-125"
@@ -71,7 +71,7 @@ const Footer = () => {
               <FaLinkedin />
             </a>
             <a
-              href="https://www.facebook.com/istiak8254"
+              href="https://www.facebook.com/theistiakahmed"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-fuchsia-600 transition duration-300 hover:scale-125"
@@ -79,7 +79,7 @@ const Footer = () => {
               <FaFacebook />
             </a>
             <a
-              href="https://www.instagram.com/istiak8254"
+              href="https://www.instagram.com/theistiakahmed"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-fuchsia-600 transition duration-300 hover:scale-125"

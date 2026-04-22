@@ -95,7 +95,7 @@ const Contact = () => {
             </p>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/theistiakahmed/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block group w-full"
