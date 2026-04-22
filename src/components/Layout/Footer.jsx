@@ -57,6 +57,8 @@ const Footer = () => {
 
           <div data-aos="fade-up" className="flex gap-4 text-xl" >
             <a
+            href="https://github.com/theistiakahmed"
+              target="_blank"
               href="https://github.com/theistiakahmed"
               className="hover:text-fuchsia-600 transition duration-300 hover:scale-125"
             >

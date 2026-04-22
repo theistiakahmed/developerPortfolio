@@ -75,7 +75,7 @@ const Banner = ({}) => {
                 </div>
               </div>
               <div className="pt-10 flex items-center justify-center lg:justify-start gap-3 sm:gap-4 flex-wrap">
-  <a href="" target="_blank"
+  <a href="https://www.linkedin.com/in/theistiakahmed/" target="_blank"
   rel="noopener noreferrer">
     <div data-aos="fade-up-right" className="text-[22px] sm:text-[26px] md:text-[30px] p-2 sm:p-3 hover:bg-fuchsia-100 hover:text-fuchsia-600 hover:scale-125 duration-300 inline-block hover:shadow-[0_0_35px_rgba(217,70,239,0.7)] rounded-2xl">
       <FaLinkedin />
