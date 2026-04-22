@@ -72,8 +72,9 @@ const Projects = () => {
               img={img5}
               title="Demo Wallet App"
               desc="A Simple Wallet App Built with Daisyui & Js"
-              liveLink="https://theistiakahmed.github.io/Bootstrap-project/"
-              githubLink="https://github.com/theistiakahmed/Bootstrap-project"
+              liveLink="https://theistiakahmed.github.io/DemoSimpleBkash/"
+              githubLink="https://github.com/theistiakahmed/DemoSimpleBkash"
+              
             />
           </div>
 
@@ -83,7 +84,7 @@ const Projects = () => {
               title="Digital Marketing Agency"
               desc="Digital Marketing Agency Platform Built With React.js"
               liveLink="https://react-routing-topaz-eight.vercel.app/"
-              githubLink="https://github.com/theistiakahmed/DemoSimpleBkash"
+              githubLink="https://github.com/theistiakahmed/Bootstrap-project"
             />
           </div>
         </Flex>
