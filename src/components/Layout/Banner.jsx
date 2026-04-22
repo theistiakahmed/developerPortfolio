@@ -88,7 +88,7 @@ const Banner = ({}) => {
       <FaXTwitter />
     </div>
  </a>
- <a href="mailto:istiakahmed346@gmail.com?subject=Hire Me&body=Hello Istiak, I want to talk with you." target="_blank"
+ <a href="mailto:istiakahmed346@gmail.com" target="_blank"
   rel="noopener noreferrer">
   <div  data-aos="fade-up-left" className="text-[22px] sm:text-[26px] md:text-[30px] p-2 sm:p-3 hover:bg-fuchsia-100 hover:text-fuchsia-600 hover:scale-125 duration-300 inline-block hover:shadow-[0_0_35px_rgba(217,70,239,0.7)] rounded-2xl">
       <MdOutgoingMail />
