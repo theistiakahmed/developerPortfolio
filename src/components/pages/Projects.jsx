@@ -31,7 +31,7 @@ const Projects = () => {
             <ProjectCard
               img={img1}
               title="Life Time Gaming Experience"
-              desc="A Gaming Base platform Built With TailwindCss"
+              desc="A Gaming Base platform Built With BootStrap"
               liveLink="https://theistiakahmed.github.io/Responsive_Portfolio/"
               githubLink="https://github.com/theistiakahmed/Responsive_Portfolio"
             />
