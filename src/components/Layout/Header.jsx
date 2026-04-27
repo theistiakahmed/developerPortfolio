@@ -98,12 +98,15 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           >
             Contact
           </NavLink>
-          <Link to={"/contact"}>
-          onClick={() => setMenuOpen(false)}
+          <NavLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+          >
             <div className="mt-3 py-[12px] px-[25px] bg-fuchsia-600 text-white font-bold hover:bg-transparent hover:border hover:border-fuchsia-600 hover:text-fuchsia-600  hover:scale-105 duration-300 rounded-xl">
               Hire Me
             </div>
-          </Link>
+          </NavLink>
+          
         </div>
       )}
     </header>
