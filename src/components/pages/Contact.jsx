@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 import Container from "../common/Container";
 import Flex from "../common/Flex";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -17,7 +17,7 @@ const Contact = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-
+const [result, setResult] = useState("");
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -25,55 +25,44 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = async (event) => {
+  event.preventDefault();
 
-    if (!form.name || !form.email || !form.subject || !form.message) {
-      setError("⚠️ Please fill all fields!");
-      setSuccess("");
-      return;
+  setLoading(true);
+
+  const formData = new FormData(event.target);
+
+  formData.append(
+    "access_key",
+    "6d3dd4e2-3567-4cd0-8395-49d8d309a915"
+  );
+
+  const response = await fetch(
+    "https://api.web3forms.com/submit",
+    {
+      method: "POST",
+      body: formData,
     }
+  );
 
-    const emailRegex = /\S+@\S+\.\S+/;
+  const data = await response.json();
 
-    if (!emailRegex.test(form.email)) {
-      setError("⚠️ Invalid email address!");
-      setSuccess("");
-      return;
-    }
-
-    setLoading(true);
+  if (data.success) {
+  Swal.fire({
+  title: "Success!",
+  text: "Message sent successfully!",
+  icon: "success"
+});
+    // setSuccess("✅ Message sent successfully!");
     setError("");
+    event.target.reset();
+  } else {
+    setError("❌ Failed to send message!");
     setSuccess("");
+  }
 
-    emailjs
-      .send(
-        "service_iw740qt",
-        "template_ep4my4s",
-        {
-          name: form.name,
-          email: form.email,
-          subject: form.subject,
-          message: form.message,
-        },
-        "l9gnhlzViEkonKA4m",
-      )
-      .then(() => {
-        setSuccess("✅ Message sent successfully!");
-        setForm({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      })
-      .catch(() => {
-        setError("❌ Failed to send message!");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+  setLoading(false);
+};
 
   return (
     <article className="shadow-2xl pb-[80px] overflow-hidden">
@@ -155,14 +144,13 @@ const Contact = () => {
               {error && <p className="text-red-500 mb-4">{error}</p>}
               {success && <p className="text-green-500 mb-4">{success}</p>}
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={onSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     type="text"
                     name="name"
                     placeholder="Full Name"
-                    value={form.name}
-                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                   />
 
@@ -170,8 +158,7 @@ const Contact = () => {
                     type="email"
                     name="email"
                     placeholder="Email Address"
-                    value={form.email}
-                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                   />
                 </div>
@@ -180,8 +167,7 @@ const Contact = () => {
                   type="text"
                   name="subject"
                   placeholder="Subject"
-                  value={form.subject}
-                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                 />
 
@@ -189,8 +175,7 @@ const Contact = () => {
                   rows="5"
                   name="message"
                   placeholder="Your Message"
-                  value={form.message}
-                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                 ></textarea>
 
