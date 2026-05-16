@@ -10,7 +10,7 @@ import Container from "../common/Container";
 
 const Projects = () => {
   return (
-    <article className=" py-[110px] md:py-[130px]">
+    <article className="shadow-2xl py-[110px] md:py-[130px]">
       <Container>
         <div className="pb-12 md:pb-20 text-center">
           <h3 className="inline-block relative font-extrabold text-[28px] sm:text-[40px] md:text-[48px]">

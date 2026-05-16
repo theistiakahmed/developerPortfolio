@@ -92,7 +92,7 @@ const About = () => {
                 <TechnicalProwes TechnicalText={"Tailwind CSS"} />
                 <TechnicalProwes TechnicalText={"Shadcn"} />
                 <TechnicalProwes TechnicalText={"Bootstrap"} />
-                <TechnicalProwes TechnicalText={"Context API"} />
+                <TechnicalProwes TechnicalText={"Rest API"} />
                 <TechnicalProwes TechnicalText={"Redux Toolkit"} />
                 <TechnicalProwes TechnicalText={"Git & GitHub"} />
                 
@@ -105,7 +105,7 @@ const About = () => {
             <div className="w-[80%] m-auto lg:w-1/2">
 
   <div data-aos="fade-down" className="mt-6 lg:mt-10 p-4 sm:p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-[#111]
-  hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] transition-all duration-300">
+  hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] overflow-visible transition-all duration-300">
 
     <ul className="space-y-2 sm:space-y-3 text-[14px] sm:text-[16px] text-gray-700 dark:text-gray-300">
 

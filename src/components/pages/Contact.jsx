@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+import emailjs from "@emailjs/browser";
 import Container from "../common/Container";
 import Flex from "../common/Flex";
 import { FaLinkedinIn } from "react-icons/fa";
 import { CiLocationOn, CiMail } from "react-icons/ci";
 import { BsFillSendFill } from "react-icons/bs";
-
+import Swal from "sweetalert2";
 const Contact = () => {
   const [form, setForm] = useState({
     name: "",
@@ -17,7 +17,7 @@ const Contact = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-const [result, setResult] = useState("");
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -25,47 +25,67 @@ const [result, setResult] = useState("");
     });
   };
 
-  const onSubmit = async (event) => {
-  event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  setLoading(true);
-
-  const formData = new FormData(event.target);
-
-  formData.append(
-    "access_key",
-    "6d3dd4e2-3567-4cd0-8395-49d8d309a915"
-  );
-
-  const response = await fetch(
-    "https://api.web3forms.com/submit",
-    {
-      method: "POST",
-      body: formData,
+    if (!form.name || !form.email || !form.subject || !form.message) {
+      setError("⚠️ Please fill all fields!");
+      setSuccess("");
+      return;
     }
-  );
 
-  const data = await response.json();
+    const emailRegex = /\S+@\S+\.\S+/;
 
-  if (data.success) {
-  Swal.fire({
-  title: "Success!",
-  text: "Message sent successfully!",
-  icon: "success"
-});
-    // setSuccess("✅ Message sent successfully!");
+    if (!emailRegex.test(form.email)) {
+      setError("⚠️ Invalid email address!");
+      setSuccess("");
+      return;
+    }
+
+    setLoading(true);
     setError("");
-    event.target.reset();
-  } else {
-    setError("❌ Failed to send message!");
     setSuccess("");
-  }
 
-  setLoading(false);
-};
+    emailjs.send(
+  "service_iw740qt",
+  "template_ep4my4s",
+  {
+    name: form.name,
+    email: form.email,
+    subject: form.subject,
+    message: form.message,
+    to_email: "istiakahmed346@gmail.com",
+  },
+  "l9gnhlzViEkonKA4m"
+)
+      .then((success) => {
+          Swal.fire({
+        title: "Message Sent!",
+        text: "Your email has been sent successfully.",
+        icon: "success",
+      });
+        setForm({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+    Swal.fire({
+      title: "Failed!",
+      text: "Something went wrong. Try again.",
+      icon: "error"
+    });
+
+  })
+  .finally(() => {
+    setLoading(false);
+      });
+  };
 
   return (
-    <article className="shadow-2xl pb-[80px] overflow-hidden">
+    <article className=" pb-[80px] overflow-hidden">
       <Container>
         <Flex className="pt-[110px] md:pt-[130px] flex-col lg:flex-row gap-10">
           <div className="w-full lg:w-1/2  px-10 md:px-0" data-aos="fade-right">
@@ -138,28 +158,29 @@ const [result, setResult] = useState("");
           </div>
 
           <div className="w-[80%] lg:w-1/2">
-            <div className="relative p-6 rounded-3xl bg-[#0f0f0f] border border-gray-800 shadow-[0_0_40px_rgba(192,38,211,0.15)] overflow-hidden">
-              <div className="absolute inset-0 opacity-20 blur-2xl bg-fuchsia-600 rounded-3xl -z-10"></div>
+            <div className="relative p-6 bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 shadow-[0_0_40px_rgba(192,38,211,0.15)] overflow-hidden">
 
               {error && <p className="text-red-500 mb-4">{error}</p>}
               {success && <p className="text-green-500 mb-4">{success}</p>}
 
-              <form onSubmit={onSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     type="text"
                     name="name"
                     placeholder="Full Name"
-                    required
-                    className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
+                    value={form.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl placeholder:text-gray-400 text-black dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                   />
 
                   <input
                     type="email"
                     name="email"
                     placeholder="Email Address"
-                    required
-                    className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
+                    value={form.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl placeholder:text-gray-400 text-black dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                   />
                 </div>
 
@@ -167,16 +188,18 @@ const [result, setResult] = useState("");
                   type="text"
                   name="subject"
                   placeholder="Subject"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
+                  value={form.subject}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl placeholder:text-gray-400 text-black dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                 />
 
                 <textarea
                   rows="5"
                   name="message"
                   placeholder="Your Message"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
+                  value={form.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl   placeholder:text-gray-400 text-black dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-fuchsia-600 focus:ring-1 focus:ring-fuchsia-600"
                 ></textarea>
 
                 <button
