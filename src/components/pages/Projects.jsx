@@ -53,7 +53,7 @@ const Projects = () => {
               title="E-commerce Platform"
               desc="An E-commerce Platform Built with React.js & Redux"
               liveLink="https://orbi-e-com.vercel.app/"
-              githubLink="https://github.com/theistiakahmed/Responsive_Portfolio"
+              githubLink="https://github.com/theistiakahmed/orbi-E-com"
             />
           </div>
 
